@@ -1,13 +1,74 @@
-*{
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-button.btn-primary{
-    background-color:  rgb(0, 179, 255);
+:root {
+    --black-color: rgb(31, 28, 28);
+    --white-color: #fff;
+    --gutter-huge: 8rem;
+    --gutter-large: 6rem;
+    --gutter-medium: 5rem;
+    --fs-huge: 5rem;
+    --fs-x-large: 4.2rem;
+    --fs-large: 3rem;
+    --fs-medium: 2.5rem;
+    --fs-small: 1.8rem;
+    --fs-x-small: 1.3rem;
+}
+main {
+    min-height: 60dvh;
+}
+button.btn-primary {
+    background-color: rgb(0, 179, 255);
     color: black;
 }
-.blog-post , .latest-blog, .categories, .form{
-    border: 01px solid black;
-    box-shadow: 5px 5px 5px 1px grey;
+.blog-post,
+.latest-blog,
+.categories,
+.form {
+    box-shadow: 0px 0px 10px #ccc;
     border-radius: 5px;
+}
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--fs-small);
+    min-height: 40dvh;
+    background-color: var(--black-color);
+    padding: var(--gutter-medium) var(--gutter-huge) var(--fs-small);
+    color: var(--white-color);
+}
+footer a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: var(--fs-x-small);
+}
+a#more{
+    font-size: var(--fs-x-small);
+    text-decoration: none;
+    color: var(--black-color);
+}
+ul.navbar-nav{
+    gap: 30px;
+    font-size: var(--fs-x-small);
+}
+footer > div:first-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+}
+footer > div:first-child >div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+div#blog_post{
+    
 }

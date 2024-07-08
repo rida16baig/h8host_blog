@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-decoration-none">{{ $blog->title }}</h5>
                             <p class="card-text text-decoration-none">{{ $blog->excerpt }}</p>
-                            <a href="{{ route('blog', $blog->id) }}" class="btn btn-primary">View Blog</a>
+                            <a href="{{ route('blog', $blog->id) }}" id="more">Read more &rarr;</a>
                         </div>
                         <div class="card-footer text-body-secondary text-decoration-none">
                             <div class="d-flex justify-content-between">

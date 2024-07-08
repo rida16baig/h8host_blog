@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    public function show_navbar()
+    {
+        $categories = Category::all();
+        return view('layout',  [ 'category' => $categories]);
+    }
     public function create_category()
     {
         return view('category.create');
@@ -34,7 +39,7 @@ class CategoryController extends Controller
         $categories = Category::all();
         $latest = Blog::latest()->limit(2)->get();
         $catwblog = Category::with('blogs')->get();
-        return view('blog_with_category', ['category' => $category, 'categories' => $categories, 'category_id' => $id, 'latest' => $latest, 'catwblog' => $catwblog]);
+        return view('blog_with_category', [ 'category' => $category, 'categories' => $categories, 'category_id' => $id, 'latest' => $latest, 'catwblog' => $catwblog ]);
     }
 
 
