@@ -5,7 +5,7 @@
 @section('content')
     <div class="container mt-5">
         <div class="row">
-            <div class="div1 col-md-8 ">
+            <div class="div1 col-md-9 ">
                 @if (Session::has('success'))
                     <p class="text-success">{{ Session::get('success') }}</p>
                 @endif
@@ -13,12 +13,12 @@
                 @foreach ($blogs as $blog)
                     <div class="card m-3 blog-post">
                         <a href="{{ route('blog', $blog->id) }}">
-                            <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top"
+                            <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top" id="blog_img"
                                 alt="{{ $blog->title }}">
                         </a>
                         <div class="card-body">
                             <h5 class="card-title text-decoration-none">{{ $blog->title }}</h5>
-                            <p class="card-text text-decoration-none">{{ $blog->excerpt }}</p>
+                            <p class="card-text text-decoration-none">{!! $blog->excerpt !!}</p>
                             <a href="{{ route('blog', $blog->id) }}" id="more">Read more &rarr;</a>
                         </div>
                         <div class="card-footer text-body-secondary text-decoration-none">
@@ -31,21 +31,18 @@
                 @endforeach
             </div>
 
-            <div class="div2 col-md-4">
+            <div class="div2 col-md-3">
                 <div class="card category m-3 ">
                     <div class="card-body latest-blog">
                         <div class="card-head"><b>Latest Blogs</b></div>
-                        <ul class="list-group ">
+                        
                             @foreach ($latest as $latestBlog)
-                                <li class="list-group-item ">
                                     <a href="{{ route('blog', $latestBlog->id) }}" class="text-decoration-none">
                                         <img src="{{ asset('storage/' . $latestBlog->image) }}"
                                             alt="{{ $latestBlog->title }}" class="card-img-top"
-                                            width="100px">{{ $latestBlog->title }}
+                                            height="120px" >{{ $latestBlog->title }}
                                     </a>
-                                </li>
                             @endforeach
-                        </ul>
                     </div>
                 </div>
 

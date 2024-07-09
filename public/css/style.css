@@ -6,7 +6,8 @@
     box-sizing: border-box;
 }
 :root {
-    --black-color: rgb(31, 28, 28);
+    --black-color:#322C2B;
+    --pink-color:#FFA6C9;
     --white-color: #fff;
     --gutter-huge: 8rem;
     --gutter-large: 6rem;
@@ -48,27 +49,28 @@ footer a {
     text-decoration: none;
     font-size: var(--fs-x-small);
 }
-a#more{
+a#more {
     font-size: var(--fs-x-small);
     text-decoration: none;
     color: var(--black-color);
 }
-ul.navbar-nav{
+ul.navbar-nav {
     gap: 30px;
     font-size: var(--fs-x-small);
 }
-footer > div:first-child{
+footer > div:first-child {
     display: flex;
     justify-content: space-between;
     align-items: start;
     width: 100%;
 }
-footer > div:first-child >div {
+footer > div:first-child > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
 }
-div#blog_post{
-    
+img#blog_img {
+    height: 400px;
+    object-fit: fill;
 }

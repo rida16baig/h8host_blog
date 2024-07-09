@@ -13,10 +13,10 @@ class BlogController extends Controller
 
     public function home()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::latest()->get();
         $category = category::get();
         $catwblog = category::with('blogs')->get();
-        $latest = Blog::latest()->limit(2)->get();
+        $latest = Blog::latest()->limit(3)->get();
 
         return view('home', [ 'blogs' => $blogs, 'category' => $category, 'latest' => $latest, 'catwblog' => $catwblog ]);
     }

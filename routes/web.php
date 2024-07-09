@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImageUploadController;
 
 Route::get('/', [ BlogController::class, 'home' ])->name('home');
 //---------------------------------main page-------------------------------------------------------//
@@ -15,6 +16,8 @@ Route::get('/auth/logout', [ AuthController::class, 'logout' ])->name('logout');
 
 Route::post('/auth/login', [ AuthController::class, 'login_post' ])->name('login_post');
 Route::post('/auth/signup', [ AuthController::class, 'signup_post' ])->name('signup_post');
+
+Route::post('upload-image', 'ImageUploadController@store')->name('upload-image');
 
 
 //---------------------------------blog page-------------------------------------------------------//

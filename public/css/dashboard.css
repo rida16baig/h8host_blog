@@ -3,12 +3,15 @@
     margin: 0;
     padding: 0;
 }
+:root{
+    --black-color: rgb(31, 28, 28);
+}
 .main-box > .row >.box > .card > .card-body > ul >li >a{
-    color: rgb(0, 179, 255);
+    color: rgb(120, 211, 211);
     text-decoration: none;
 }
 .main-box > .row >.box > .card > .card-body > ul >li,.main-box > .row >.box > .card > .card-body  {
-    background-color: black;
+    background-color: var(--black-color);
     color: white;
 }
 .box > .card{
@@ -19,11 +22,10 @@
     width: 500px;
     border: 2px solid white;
     border-radius: 10px;
-    box-shadow: 10px 10px  10px black;
+    box-shadow: 10px 10px  10px var(--black-color);
 }
 .main-box > .row > .box > .card > .card-body:hover{
-    box-shadow: 17px 17px  10px black;
-    width: 510px;
+    box-shadow: 17px 17px  10px var(--black-color);
     transition: all ease-in-out 0.25s;
     cursor: pointer;
 }
