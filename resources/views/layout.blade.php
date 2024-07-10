@@ -12,29 +12,28 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/42.0.0/ckeditor5.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
 
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <style>
-        .dropdown:hover .dropdown-menu {
-            display: block;
-            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        a#blog_ct:hover {
-            background-color: #FFA6C9;
-            color: var(--white-color);
-        }
-
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">    
     @yield('style')
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg p-3">
-        <div class="w-100">
-            <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex justify-content-center align-items-center w-100">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <!-- Add the logo -->
+            <a class="navbar-brand" href="/" id="logo">BiteBrust</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                     @auth
                         <li class="nav-item">
                             <a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a>
@@ -48,7 +47,7 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Categories
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarDropdownItem">
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach ($categories as $category)
                                 <li><a class="dropdown-item" id="blog_ct"
                                         href="{{ route('blog_with_category', $category->id) }}">{{ $category->name }}</a>
@@ -69,6 +68,7 @@
             </div>
         </div>
     </nav>
+    @yield('main_section')
     <main class="p-3">
         @yield('content')
     </main>
@@ -107,6 +107,20 @@
             <p>All rights reserved @ 2024</p>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('nav.navbar');
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY >= 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+    @yield('script')
 </body>
-@yield('script')
+
 </html>

@@ -1,10 +1,23 @@
 @extends('layout')
 
 @section('title', 'home page')
-
 @section('content')
     <div class="container mt-5">
-        <div class="row">
+        @section('main_section')
+            <section id="hero_section" class="swiper-container">
+                <div class="swiper-wrapper latest_blog">
+                        @foreach ($hero_blog as $latestBlog)
+                            <div class="swiper-slide " id="hero_blog">
+                                <a href="{{ route('blog', $latestBlog->id) }}" class="text-decoration-none">
+                                    <img src="{{ asset('storage/' . $latestBlog->image) }}" id="hero_images" alt="{{ $latestBlog->title }}">
+                                    <p class="lt_title">{{ $latestBlog->title }}</p>
+                                </a>
+                            </div>
+                        @endforeach
+                </div>
+            </section>
+        @endsection
+        <div class="row" id="home_div">
             <div class="div1 col-md-9 ">
                 @if (Session::has('success'))
                     <p class="text-success">{{ Session::get('success') }}</p>
@@ -17,7 +30,7 @@
                                 alt="{{ $blog->title }}">
                         </a>
                         <div class="card-body">
-                            <h5 class="card-title text-decoration-none">{{ $blog->title }}</h5>
+                            <h5 class="card-title text-decoration-none" id="title">{{ $blog->title }}</h5>
                             <p class="card-text text-decoration-none">{!! $blog->excerpt !!}</p>
                             <a href="{{ route('blog', $blog->id) }}" id="more">Read more &rarr;</a>
                         </div>
@@ -30,52 +43,99 @@
                     </div>
                 @endforeach
             </div>
-
-            <div class="div2 col-md-3">
+            <div class="div2 col-md-3" id="stick">
                 <div class="card category m-3 ">
                     <div class="card-body latest-blog">
-                        <div class="card-head"><b>Latest Blogs</b></div>
-                        
-                            @foreach ($latest as $latestBlog)
-                                    <a href="{{ route('blog', $latestBlog->id) }}" class="text-decoration-none">
-                                        <img src="{{ asset('storage/' . $latestBlog->image) }}"
-                                            alt="{{ $latestBlog->title }}" class="card-img-top"
-                                            height="120px" >{{ $latestBlog->title }}
-                                    </a>
-                            @endforeach
+                        <div class="card-head">Latest Blogs</div>
+                        @foreach ($latest as $latestBlog)
+                            <a href="{{ route('blog', $latestBlog->id) }}" class="text-decoration-none">
+                                <img src="{{ asset('storage/' . $latestBlog->image) }}" alt="{{ $latestBlog->title }}"
+                                    class="card-img-top" height="120px">
+                                <p class="lt_title">{{ $latestBlog->title }}</p>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
-
                 <div class="card category m-3 ">
                     <div class="card-body categories">
-                        <div class="card-head"><b>Categories</b></div>
+                        <div class="card-head">Categories</div>
                         <ol class="list-group list-group-numbered">
                             @foreach ($catwblog as $category)
                                 @if ($category->id == $blog->category_id)
                                     <li class="list-group-item d-flex justify-content-between align-items-start ">
                                         <div class="ms-2 me-auto">
                                             <a href="{{ route('blog_with_category', $category->id) }}">
-                                                <div class="fw-bold ">{{ $category->name }}</div>
+                                                <div>{{ $category->name }}</div>
                                             </a>
                                         </div>
-                                        <span class="badge bg-primary rounded-pill">{{ count($category->blogs) }}</span>
+                                        <span class="badge rounded-pill">{{ count($category->blogs) }}</span>
                                     </li>
                                 @else
                                     <li class="list-group-item d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
                                             <a href="{{ route('blog_with_category', $category->id) }}">
-                                                <div class="fw-bold ">{{ $category->name }}</div>
+                                                <div>{{ $category->name }}</div>
                                             </a>
                                         </div>
-                                        <span class="badge bg-primary  rounded-pill">{{ count($category->blogs) }}</span>
+                                        <span class="badge rounded-pill">{{ count($category->blogs) }}</span>
                                     </li>
                                 @endif
                             @endforeach
                         </ol>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        slidesPerView: 4,
+        spaceBetween: 10,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: false,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            // when window width is <= 640px
+            200: {
+                slidesPerView: 1,
+                spaceBetween: 20
+            },
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 20
+            },
+            // when window width is <= 768px
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 30
+            },
+            // when window width is <= 1024px
+            1100: {
+                slidesPerView: 3,
+                spaceBetween: 20
+            },
+            // when window width is <= 1024px
+            1400: {
+                slidesPerView: 4,
+                spaceBetween: 10
+            }
+        }
+    });
+</script>
+
 @endsection

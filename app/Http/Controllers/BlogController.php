@@ -17,8 +17,9 @@ class BlogController extends Controller
         $category = category::get();
         $catwblog = category::with('blogs')->get();
         $latest = Blog::latest()->limit(3)->get();
+        $hero_blog = Blog::latest()->limit(10)->get();
 
-        return view('home', [ 'blogs' => $blogs, 'category' => $category, 'latest' => $latest, 'catwblog' => $catwblog ]);
+        return view('home', [ 'blogs' => $blogs,'hero_blog' => $hero_blog, 'category' => $category, 'latest' => $latest, 'catwblog' => $catwblog ]);
     }
 
     // public function all_blog_posts()

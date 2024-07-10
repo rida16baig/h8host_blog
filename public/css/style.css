@@ -6,8 +6,8 @@
     box-sizing: border-box;
 }
 :root {
-    --black-color:#322C2B;
-    --pink-color:#FFA6C9;
+    --black-color: #322c2b;
+    --pink-color: #ffa6c9;
     --white-color: #fff;
     --gutter-huge: 8rem;
     --gutter-large: 6rem;
@@ -20,7 +20,7 @@
     --fs-x-small: 1.3rem;
 }
 main {
-    min-height: 60dvh;
+    min-height: 60vh;
 }
 button.btn-primary {
     background-color: rgb(0, 179, 255);
@@ -39,7 +39,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     gap: var(--fs-small);
-    min-height: 40dvh;
+    min-height: 40vh;
     background-color: var(--black-color);
     padding: var(--gutter-medium) var(--gutter-huge) var(--fs-small);
     color: var(--white-color);
@@ -53,10 +53,11 @@ a#more {
     font-size: var(--fs-x-small);
     text-decoration: none;
     color: var(--black-color);
+    font-weight: bold;
 }
-ul.navbar-nav {
-    gap: 30px;
-    font-size: var(--fs-x-small);
+a#more:hover {
+    transition: all 0.25s ease-in-out;
+    color: var(--pink-color);
 }
 footer > div:first-child {
     display: flex;
@@ -72,5 +73,73 @@ footer > div:first-child > div {
 }
 img#blog_img {
     height: 400px;
-    object-fit: fill;
+}
+img{    
+    object-fit: cover;
+    object-position: center;
+}
+img#blog_img:hover {
+    filter: brightness(80%);
+    transition: all 0.25s ease-in-out;
+}
+div.card-body {
+    position: relative;
+}
+h5#title {
+    background-color: var(--pink-color);
+    padding: 20px;
+    max-width: max-content;
+    margin-top: -30px;
+    font-size: 25px;
+}
+span.badge {
+    background-color: var(--pink-color);
+    color: var(--black-color);
+}
+ol.list-group {
+    font-size: var(--fs-x-small);
+}
+
+ol.list-group a {
+    color: var(--black-color);
+    font-weight: 500;
+}
+ol.list-group a:hover {
+    transition: all 0.1s ease-in-out;
+    color: var(--pink-color);
+}
+div.div1 > div:hover {
+    box-shadow: 0 0 10px var(--pink-color);
+}
+div.card-head {
+    font-size: var(--fs-x-small);
+    margin-bottom: 10px;
+    text-align: center;
+    color: var(--black-color);
+    font-weight: bolder;
+    text-shadow: 0px 0px 1px var(--pink-color);
+}
+p.lt_title {
+    text-align: center;
+    color: var(--black-color);
+    font-style: italic;
+}
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    flex: 1;
+}
+div.home_div{
+    position: relative;
+}
+div#stick {
+    position: sticky;
+    top: 10px;
+    left: 20px;
 }

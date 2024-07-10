@@ -3,7 +3,7 @@
 @section('title', 'Blog page')
 
 @section('content')
-    <div class="container col-8 mt-5">
+    <div class="container col-md-8 mt-5">
         @if (Session::has('success'))
             <p class="text-success">{{ Session::get('success') }}</p>
         @endif
