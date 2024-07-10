@@ -96,7 +96,7 @@
     var swiper = new Swiper('.swiper-container', {
         loop: true,
         slidesPerView: 4,
-        spaceBetween: 10,
+        spaceBetween: 20,
         pagination: {
             el: '.swiper-pagination',
             clickable: false,
@@ -132,7 +132,7 @@
             // when window width is <= 1024px
             1400: {
                 slidesPerView: 4,
-                spaceBetween: 10
+                spaceBetween: 50
             }
         }
     });

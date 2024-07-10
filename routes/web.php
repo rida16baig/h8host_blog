@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function(){
 });
 Route::get('/blog/{id}', [ BlogController::class, 'blog' ])->name('blog');
 Route::get('categories/{id}',[CategoryController::class,'blog_with_category'])->name('blog_with_category');
+Route::get('/latest_blogs', [ BlogController::class, 'latest_blogs' ])->name('latest_blogs');
+Route::get('/contact', [ BlogController::class, 'contact' ])->name('contact');
 
 //---------------------------------category page---------------------------------------------------//
 Route::middleware('auth')->group(function(){

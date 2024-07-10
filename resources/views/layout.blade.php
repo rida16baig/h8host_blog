@@ -56,10 +56,10 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Latest</a>
+                        <a href="{{route('latest_blogs')}}" class="nav-link">Latest</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Contact</a>
+                        <a href="{{route('contact')}}" class="nav-link">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">About Us</a>

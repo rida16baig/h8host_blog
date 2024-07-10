@@ -5,7 +5,7 @@
 }
 :root {
     --black-color: #322c2b;
-    --pink-color: #ffa6c9;
+    --pink-color: #fb557c;
     --white-color: #fff;
     --gutter-huge: 8rem;
     --gutter-large: 6rem;
@@ -26,14 +26,18 @@ nav.navbar {
     padding: 5px;
     transition: all 0.3s ease-in-out;
 }
+.navbar-toggler {
+    color: var(--white-color);
+    background-color: var(--white-color);
+}
 nav.navbar.scrolled {
     background-color: var(--pink-color);
     color: var(--white-color);
     padding: 5px;
 }
-nav.navbar.scrolled a.nav-link {
+/* nav.navbar.scrolled a.nav-link {
     color: var(--black-color);
-}
+} */
 ul.navbar-nav {
     gap: 30px;
     font-size: var(--fs-x-small);
@@ -100,7 +104,7 @@ section#hero_section .latest_blog {
 }
 img#hero_images {
     width: 350px;
-    height: 500px;
+    height: 400px;
     filter: brightness(100%);
     object-fit: cover;
     object-position: center;
@@ -141,3 +145,4 @@ div.latest_blog .lt_title {
     max-width: 100%;
     height: auto;
 }
+

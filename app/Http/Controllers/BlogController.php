@@ -19,16 +19,21 @@ class BlogController extends Controller
         $latest = Blog::latest()->limit(3)->get();
         $hero_blog = Blog::latest()->limit(10)->get();
 
-        return view('home', [ 'blogs' => $blogs,'hero_blog' => $hero_blog, 'category' => $category, 'latest' => $latest, 'catwblog' => $catwblog ]);
+        return view('home', [ 'blogs' => $blogs, 'hero_blog' => $hero_blog, 'category' => $category, 'latest' => $latest, 'catwblog' => $catwblog ]);
     }
 
-    // public function all_blog_posts()
-    // {
-    //     $blogs = Blog::all();
-    //     return view('admin.blogs.all', ['blogs' => $blogs]);
-    // }
+    public function latest_blogs()
+    {
+        $latest_blogs = Blog::latest()->limit(20)->get();
+        return view('latest', [ 'latest_blogs' => $latest_blogs]);
+    }
 
-    
+    public function contact()
+    {
+        return view('contact');
+    }
+
+
     public function blog($id)
     {
         $blog = Blog::where('id', $id)->get();
@@ -86,16 +91,16 @@ class BlogController extends Controller
     public function edit_blog($id)
     {
         $blog = Blog::find($id);
-        return view('admin.edit', ['blog' => $blog]);
+        return view('admin.edit', [ 'blog' => $blog ]);
     }
 
     public function edit_blog_post(Request $request, $id)
     {
         $image = Blog::where('id', $id)->select('image')->get();
 
-        $image = $image[0]->image;
+        $image = $image[ 0 ]->image;
 
-        $validated_data = $request->validate([
+        $validated_data = $request->validate([ 
             'title' => 'required',
             'excerpt' => 'required',
             'body' => 'required',
@@ -108,7 +113,7 @@ class BlogController extends Controller
             if ($result) {
                 $image_name = $this->uploadImage($image);
 
-                $result = Blog::where('id', $id)->update([
+                $result = Blog::where('id', $id)->update([ 
                     'title' => $request->input('title'),
                     'excerpt' => $request->input('excerpt'),
                     'body' => $request->input('body'),
@@ -129,7 +134,7 @@ class BlogController extends Controller
 
     public function delete_blog_post($id)
     {
-       
+
         $blog = Blog::find($id);
 
         $thumbnail = $blog->image;
@@ -142,11 +147,11 @@ class BlogController extends Controller
             }
         }
     }
-    
+
 
     public function uploadImage($image)
     {
-        $image_name =  Str::random(20) . '.' . $image->getClientOriginalExtension();
+        $image_name = Str::random(20) . '.' . $image->getClientOriginalExtension();
         $image->storeAs('public', $image_name);
         return $image_name;
     }

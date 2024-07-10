@@ -37,7 +37,7 @@ class CategoryController extends Controller
     {
         $category = Category::where('id', $id)->with('blogs')->get();
         $categories = Category::all();
-        $latest = Blog::latest()->limit(2)->get();
+        $latest = Blog::latest()->limit(3)->get();
         $catwblog = Category::with('blogs')->get();
         return view('blog_with_category', [ 'category' => $category, 'categories' => $categories, 'category_id' => $id, 'latest' => $latest, 'catwblog' => $catwblog ]);
     }
