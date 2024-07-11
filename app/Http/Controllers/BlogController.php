@@ -30,8 +30,12 @@ class BlogController extends Controller
 
     public function contact()
     {
-        return view('contact');
-    }
+        $blogs = Blog::latest()->get();
+        $category = category::get();
+        $latest = Blog::latest()->limit(3)->get();
+        $catwblog = category::with('blogs')->get();
+        return view('contact', [ 'blogs' => $blogs, 'category' => $category, 'catwblog' => $catwblog ,'latest' => $latest]);
+   }
 
 
     public function blog($id)

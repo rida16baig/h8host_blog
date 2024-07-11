@@ -69,7 +69,7 @@
         </div>
     </nav>
     @yield('main_section')
-    <main class="p-3">
+    <main>
         @yield('content')
     </main>
     <footer>

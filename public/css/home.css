@@ -6,6 +6,7 @@
 :root {
     --black-color: #322c2b;
     --pink-color: #fb557c;
+    --light-pink-color: #eba9b8;
     --white-color: #fff;
     --gutter-huge: 8rem;
     --gutter-large: 6rem;
@@ -80,6 +81,7 @@ section#hero_section {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    /* background:linear-gradient(45deg, var(--pink-color),var(--light-pink-color)) ; */
 }
 
 section#hero_section::before {

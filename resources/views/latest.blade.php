@@ -5,7 +5,6 @@
 @endsection
 @section('content')
     <section>
-
         <div class="container col-md-8 mt-5 mb-5">
             <div class=" category m-3 ">
                 <h1 id="latest_blg">Latest Blogs</h1>
