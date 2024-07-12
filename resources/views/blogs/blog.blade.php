@@ -9,7 +9,7 @@
         @endif
 
         @foreach ($blog as $blog)
-            <div class="card mt-5">
+            <div class="card mt-5 mb-5">
                 <a>
                     <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top" height="500px" alt="{{ $blog->title }}">
                 </a>

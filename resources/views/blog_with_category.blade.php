@@ -1,7 +1,14 @@
 @extends('layout')
 
 @section('title', 'Blog with category page')
-
+@section('style')
+<link rel="stylesheet" href="{{asset('css/contact.css')}}">
+<style>
+    li#cnt_tags a {
+    font-size: 1.2rem;
+    }
+</style>
+@endsection
 @section('content')
     <div class="container mt-5">
         <div class="row">
@@ -13,8 +20,8 @@
                 @foreach ($category[0]->blogs as $blog)
                     <div class="card m-3 blog-post">
                         <a href="{{ route('blog', $blog->id) }}">
-                            <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top"
-                                alt="{{ $blog->title }}" height="400px">
+                            <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top" alt="{{ $blog->title }}"
+                                height="400px">
                         </a>
                         <div class="card-body">
                             <h5 class="card-title text-decoration-none">{{ $blog->title }}</h5>
@@ -30,9 +37,9 @@
                     </div>
                 @endforeach
             </div>
-            
+
             <div class="div2 col-md-3" id="stick">
-                <div class="card category m-3 ">
+                {{-- <div class="card category m-3 ">
                     <div class="card-body latest-blog">
                         <div class="card-head">Latest Blogs</div>
                         @foreach ($latest as $latestBlog)
@@ -71,7 +78,38 @@
                             @endforeach
                         </ol>
                     </div>
+                </div> --}}
+                <div class="category">
+                    <h2>Latest Posts</h2>
+                    <div id="blg_wrapper">
+                        @foreach ($latest as $latestBlog)
+                            <a href="{{ route('blog', $latestBlog->id) }}" class="text-decoration-none">
+                                <div id="blg_container">
+                                    <img src="{{ asset('storage/' . $latestBlog->image) }}" alt="{{ $latestBlog->title }}"
+                                        height="80px">
+                                    <div id="cnt_body">
+                                        <h3>{{ $latestBlog->title }}</h3>
+                                        <p>{{ \Illuminate\Support\Str::limit(strip_tags($latestBlog->excerpt), 100, '...') }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach
+                    </div>
                 </div>
-            </div></div>
+                <div id="contact_tags">
+                    <h2>Categories</h2>
+                    <ol>
+                        @foreach ($catwblog as $category)
+                            <li class="list-group-item d-flex justify-content-between align-items-start" id="cnt_tags">
+                                <a href="{{ route('blog_with_category', $category->id) }}">
+                                    {{ $category->name }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ol>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

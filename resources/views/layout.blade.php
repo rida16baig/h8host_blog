@@ -14,11 +14,9 @@
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/42.0.0/ckeditor5.css">
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-
-    <title>@yield('title')</title>
+        <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">    
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     @yield('style')
 </head>
 
@@ -56,13 +54,13 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('latest_blogs')}}" class="nav-link">Latest</a>
+                        <a href="{{ route('latest_blogs') }}" class="nav-link">Latest</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('contact')}}" class="nav-link">Contact</a>
+                        <a href="{{ route('contact') }}" class="nav-link">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">About Us</a>
+                        <a href="{{ route('about') }}" class="nav-link">About Us</a>
                     </li>
                 </ul>
             </div>
@@ -75,36 +73,45 @@
     <footer>
         <div>
             <div>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    @auth
-                        <li class="nav-item ">
-                            <a style="color: white; text-decoration:none" href="{{ route('dashboard') }}"
-                                class="nav-link">Dashboard</a>
-                        </li>
-                    @endauth
-                </ul>
+                <a class="navbar-brand" href="/" id="logo">BiteBrust</a>
+                <div>
+                    <div>
+                        <h4>Phone :</h4>
+                        <p>0304 6667274</p>
+                    </div>
+                    <div>
+                        <h4>Email :</h4>
+                        <a href="mailto:h8host@gmail.com">h8host@gmail.com</a>
+                    </div>
+                    <div>
+                        <h4>Address :</h4>
+                        <p>Mian Archade, Ichra main bazar, Mohallah Manzorabad Layyah, 3, Lahore, 05308</p>
+                    </div>
+                </div>
+            </div>
+            <div >
+                <a href="{{ route('home') }}">Blogs</a>
+                <a href="{{route('latest_blogs')}}">Latest</a>
+                <a href="{{route('about')}}">About</a>
+                <a href="{{route('contact')}}">Contact</a>
+                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('signup') }}">Signup</a>
+                @auth
+                    <a style="color: white; text-decoration:none" href="{{ route('dashboard') }}"
+                        class="nav-link">Dashboard</a>
+                @endauth
                 @auth
                     <a href="{{ route('logout') }}">Logout</a>
                 @endauth
-                @guest
-                    <a href="{{ route('login') }}">Login</a>
-                    <a href="{{ route('signup') }}">Signup</a>
-                @endguest
             </div>
             <div>
-                <a href="{{ route('home') }}">Blogs</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
+                <a href="https://www.facebook.com/profile.php?id=61557977762832"><img src="{{asset('images/facebook.png')}}" alt="Facebook"></a>
+                <a href="https://www.instagram.com/h8host/"><img src="{{asset('images/insta.png')}}" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/in/h8host/"><img src="{{asset('images/linkedin.png')}}" alt="Linkedin"></a>
             </div>
-            <div>
-                <a href="#">fb</a>
-                <a href="#">insta</a>
-                <a href="#">linkedin</a>
-            </div>
-
         </div>
         <div>
-            <p>All rights reserved @ 2024</p>
+            <p>Copyright &copy; BiteBrust 2024. All rights reserved</p>
         </div>
     </footer>
     <script>

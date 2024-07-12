@@ -81,7 +81,7 @@ section#hero_section {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    /* background:linear-gradient(45deg, var(--pink-color),var(--light-pink-color)) ; */
+    background:var(--white-color) ;
 }
 
 section#hero_section::before {
@@ -91,7 +91,7 @@ section#hero_section::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../images/hero_img.jpg");
+    /* background-image: url("../images/hero_img.jpg"); */
     background-position: center;
     background-size: cover;
     filter: blur(7px); /* Apply the desired filter */
@@ -124,7 +124,7 @@ div.latest_blog {
 div.latest_blog > div {
     background-color: var(--white-color);
     padding: 10px;
-    box-shadow: 5px 5px 10px var(--black-color);
+    box-shadow: 5px 5px 15px var(--black-color);
 }
 div.latest_blog .lt_title {
     font-size: var(--fs-small);
