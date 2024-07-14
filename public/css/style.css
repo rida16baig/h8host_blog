@@ -20,9 +20,34 @@
     --fs-small: 1.8rem;
     --fs-x-small: 1.3rem;
 }
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--white-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--pink-color);
+    height: 150px;
+    border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--light-pink-color);
+}
+body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--pink-color) var(--white-color);
+}
+body {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
 main {
     min-height: 60vh;
 }
+
 button.btn-primary {
     background-color: rgb(0, 179, 255);
     color: black;

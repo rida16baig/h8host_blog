@@ -2,10 +2,10 @@
 
 @section('title', 'home page')
 @section('style')
-<link rel="stylesheet" href="{{asset('css/contact.css')}}">
+<link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 <style>
     li#cnt_tags a {
-    font-size: 1.2rem;
+        font-size: 1.2rem;
     }
 </style>
 @endsection
@@ -14,19 +14,19 @@
         @section('main_section')
             <section id="hero_section" class="swiper-container">
                 <div class="swiper-wrapper latest_blog">
-                        @foreach ($hero_blog as $latestBlog)
-                            <div class="swiper-slide " id="hero_blog">
-                                <a href="{{ route('blog', $latestBlog->id) }}" class="text-decoration-none">
-                                    <img src="{{ asset('storage/' . $latestBlog->image) }}" id="hero_images" alt="{{ $latestBlog->title }}">
-                                    <p class="lt_title">{{ $latestBlog->title }}</p>
-                                </a>
-                            </div>
-                        @endforeach
+                    @foreach ($hero_blog as $latestBlog)
+                        <div class="swiper-slide" id="hero_blog">
+                            <a href="{{ route('blog', $latestBlog->id) }}" class="text-decoration-none">
+                                <img src="{{ asset('storage/' . $latestBlog->image) }}" id="hero_images" alt="{{ $latestBlog->title }}">
+                                <p class="lt_title">{{ $latestBlog->title }}</p>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </section>
         @endsection
         <div class="row" id="home_div">
-            <div class="div1 col-md-9 ">
+            <div class="div1 col-md-9">
                 @if (Session::has('success'))
                     <p class="text-success">{{ Session::get('success') }}</p>
                 @endif
@@ -34,8 +34,7 @@
                 @foreach ($blogs as $blog)
                     <div class="card m-3 blog-post">
                         <a href="{{ route('blog', $blog->id) }}">
-                            <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top" id="blog_img"
-                                alt="{{ $blog->title }}">
+                            <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top" id="blog_img" alt="{{ $blog->title }}">
                         </a>
                         <div class="card-body">
                             <h5 class="card-title text-decoration-none" id="title">{{ $blog->title }}</h5>
@@ -51,59 +50,17 @@
                     </div>
                 @endforeach
             </div>
-            <div class="div2 col-md-3" id="stick">
-                {{-- <div class="card category m-3 ">
-                    <div class="card-body latest-blog">
-                        <div class="card-head">Latest Blogs</div>
-                        @foreach ($latest as $latestBlog)
-                            <a href="{{ route('blog', $latestBlog->id) }}" class="text-decoration-none">
-                                <img src="{{ asset('storage/' . $latestBlog->image) }}" alt="{{ $latestBlog->title }}"
-                                    class="card-img-top" height="120px">
-                                <p class="lt_title">{{ $latestBlog->title }}</p>
-                            </a>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="card category m-3 ">
-                    <div class="card-body categories">
-                        <div class="card-head">Categories</div>
-                        <ol class="list-group list-group-numbered">
-                            @foreach ($catwblog as $category)
-                                @if ($category->id == $blog->category_id)
-                                    <li class="list-group-item d-flex justify-content-between align-items-start ">
-                                        <div class="ms-2 me-auto">
-                                            <a href="{{ route('blog_with_category', $category->id) }}">
-                                                <div>{{ $category->name }}</div>
-                                            </a>
-                                        </div>
-                                        <span class="badge rounded-pill">{{ count($category->blogs) }}</span>
-                                    </li>
-                                @else
-                                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                                        <div class="ms-2 me-auto">
-                                            <a href="{{ route('blog_with_category', $category->id) }}">
-                                                <div>{{ $category->name }}</div>
-                                            </a>
-                                        </div>
-                                        <span class="badge rounded-pill">{{ count($category->blogs) }}</span>
-                                    </li>
-                                @endif
-                            @endforeach
-                        </ol>
-                    </div>
-                </div> --}}
+            <div class="div2 col-md-3 sticky-container" style="position: sticky">
                 <div class="category">
                     <h2>Latest Posts</h2>
                     <div id="blg_wrapper">
                         @foreach ($latest as $latestBlog)
                             <a href="{{ route('blog', $latestBlog->id) }}" class="text-decoration-none">
                                 <div id="blg_container">
-                                    <img src="{{ asset('storage/' . $latestBlog->image) }}" alt="{{ $latestBlog->title }}"
-                                        height="80px">
+                                    <img src="{{ asset('storage/' . $latestBlog->image) }}" alt="{{ $latestBlog->title }}" height="80px">
                                     <div id="cnt_body">
                                         <h3>{{ $latestBlog->title }}</h3>
-                                        <p>{{ \Illuminate\Support\Str::limit(strip_tags($latestBlog->excerpt), 100, '...') }}
-                                        </p>
+                                        <p>{{ \Illuminate\Support\Str::limit(strip_tags($latestBlog->excerpt), 100, '...') }}</p>
                                     </div>
                                 </div>
                             </a>

@@ -1,0 +1,61 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black-color: #322c2b;
+    --pink-color: #fb557c;
+    --light-pink-color: #f56385;
+    --white-color: #fff;
+    --gutter-huge: 8rem;
+    --gutter-large: 6rem;
+    --gutter-medium: 5rem;
+    --fs-huge: 5rem;
+    --fs-x-large: 4.2rem;
+    --fs-large: 3rem;
+    --fs-medium: 2.5rem;
+    --fs-small: 1.8rem;
+    --fs-x-small: 1.3rem;
+}
+html{
+    font-size: 14px;
+}
+img {
+    max-width: 1100px;
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+}
+h1{
+    font-size: var(--fs-medium);
+}
+div#about_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--fs-x-small);
+    font-size: var(--fs-x-small);
+}
+div.para {
+    padding: 2.5rem 0 0;
+}
+
+div.para:last-child {
+    padding: 2.5rem 0 ;
+}
+div.para h2 {
+    font-size: var(--fs-medium);
+    font-style: italic;
+}
+
+@media (max-width:600px) {
+    html{
+        font-size: 13px;
+    }
+}

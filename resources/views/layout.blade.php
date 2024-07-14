@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/42.0.0/ckeditor5.css">
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-        <title>@yield('title')</title>
+    <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     @yield('style')
@@ -89,11 +89,11 @@
                     </div>
                 </div>
             </div>
-            <div >
+            <div>
                 <a href="{{ route('home') }}">Blogs</a>
-                <a href="{{route('latest_blogs')}}">Latest</a>
-                <a href="{{route('about')}}">About</a>
-                <a href="{{route('contact')}}">Contact</a>
+                <a href="{{ route('latest_blogs') }}">Latest</a>
+                <a href="{{ route('about') }}">About</a>
+                <a href="{{ route('contact') }}">Contact</a>
                 <a href="{{ route('login') }}">Login</a>
                 <a href="{{ route('signup') }}">Signup</a>
                 @auth
@@ -105,9 +105,12 @@
                 @endauth
             </div>
             <div>
-                <a href="https://www.facebook.com/profile.php?id=61557977762832"><img src="{{asset('images/facebook.png')}}" alt="Facebook"></a>
-                <a href="https://www.instagram.com/h8host/"><img src="{{asset('images/insta.png')}}" alt="Instagram"></a>
-                <a href="https://www.linkedin.com/in/h8host/"><img src="{{asset('images/linkedin.png')}}" alt="Linkedin"></a>
+                <a href="https://www.facebook.com/profile.php?id=61557977762832"><img
+                        src="{{ asset('images/facebook.png') }}" alt="Facebook"></a>
+                <a href="https://www.instagram.com/h8host/"><img src="{{ asset('images/insta.png') }}"
+                        alt="Instagram"></a>
+                <a href="https://www.linkedin.com/in/h8host/"><img src="{{ asset('images/linkedin.png') }}"
+                        alt="Linkedin"></a>
             </div>
         </div>
         <div>
