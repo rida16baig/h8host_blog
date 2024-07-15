@@ -14,7 +14,7 @@
                     <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top" height="500px" alt="{{ $blog->title }}">
                 </a>
                 <div class="card-body">
-                    <h5 class="card-title text-decoration-none">{{ $blog->title }}</h5>
+                    <h5 class="card-title text-decoration-none text-center" style="font-size: 3rem;"><i>{{ $blog->title }}</i></h5>
                     <p class="card-text text-decoration-none">{!! $blog->excerpt !!}</p>
                     <p class="card-text text-decoration-none">{!! $blog->body !!}</p>
                 </div>

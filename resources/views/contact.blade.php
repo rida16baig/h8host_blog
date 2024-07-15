@@ -4,15 +4,26 @@
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 @endsection
 @section('content')
+    <div class="container mt-5">
+        @if (Session::has('msg'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ Session::get('msg') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+    </div>
     <div class="contact row">
         <section id="form" class="container col-md-8 mt-5 mb-5">
             <h1 class="text-center">Contact Us</h1>
             <p class="text-center">Feel free to contact us for any need!</p>
-            <form>
+            <form action="{{ route('contact') }}" method="POST">
+                @method('Post')
+                @csrf
                 <div class="input-group">
-                    <input type="text" placeholder="Name">
-                    <input type="email" placeholder="Email">
-                    <input type="text" placeholder="Subject">
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="text" name="subject" placeholder="Subject">
                 </div>
                 <div class="textarea-group">
                     <textarea name="message" id="message" cols="30" rows="5" placeholder="Message"></textarea>

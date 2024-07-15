@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
@@ -18,6 +20,9 @@ Route::post('/auth/login', [ AuthController::class, 'login_post' ])->name('login
 Route::post('/auth/signup', [ AuthController::class, 'signup_post' ])->name('signup_post');
 
 Route::post('upload-image', 'ImageUploadController@store')->name('upload-image');
+
+Route::post('/comment', [ CommentController::class, 'comment' ])->name('comment');
+Route::post('/contact', [ ContactController::class, 'contact' ])->name('contact');
 
 
 //---------------------------------blog page-------------------------------------------------------//
